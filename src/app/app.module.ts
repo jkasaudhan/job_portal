@@ -3,18 +3,19 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+
 import { AppComponent } from './app.component';
-import { JobApplyComponent } from './job-apply/job-apply.component';
+import { JobApplyModule } from './job-apply/job-apply.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    JobApplyComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    JobApplyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
