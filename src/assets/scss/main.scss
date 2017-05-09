@@ -8,6 +8,11 @@
 		background: #fff;
 	}
 	
+
+	.brand.container {
+		width: 100%;
+	}
+
 	.container {
 		width: 50%;
 	}
@@ -17,6 +22,7 @@
 		border-bottom: 1px solid #e5e5e5;
 		position: relative;
 	   	min-height: 75px;
+	   	margin-bottom: 20px;
 	}
 
 	.brand img {
@@ -79,26 +85,57 @@
 	}
 
 	/* Progress bar */
-	.progress-bar {
+	.progress-step {
 		border: 1px solid red;
+		overflow: hidden;
+		
 	}
 
-	.progress-step .step {
+	.progress-step ul {
+		position: relative;
+	}
+
+	.progress-step li {
 	        text-align: center;
-			background: #ccc;
-			width: 40px;
-			height: 40px;
-			display: block;
-			border-radius: 50%;
+			display: inline-block;
+			float: left;
+			width: 25%;
+			border: 1px solid navy;
 	}
 
-	.progress-step .step:after {
-		content: '';
-		display: block;
-		height: 3px;
-		width: 100%;
-		background: green;
+	.progress-step li a {
+		width: 40px;
+		height: 40px;
+		display: inline-block;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 40px;
+		background: #e5e5e5;
+		border: 1px solid #ccc;
+		border-radius: 50%;
+		color: #ccc;
+		z-index: 10;
+
 	}
+
+	.progress-step li:after {
+		position: absolute;
+		top: 20px;
+		content: '';
+		display: inline-block;
+		height: 3px;
+		width: 25%;
+		background: green;
+		transform: translateX(-50%);
+		z-index: -5;
+
+	}
+
+	.progress-step li:first-child:after { 
+		background: red;
+	}
+
+
 
 	/* Form content */
 	.form-content {
