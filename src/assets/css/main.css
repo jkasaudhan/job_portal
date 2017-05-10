@@ -20,6 +20,9 @@
 .btn-xing:hover {
   background: #027070; }
 
+.main-bg-color {
+  background: #E74C3C !important; }
+
 .job-apply-wrapper {
   box-sizing: border-box;
   /* For multi column dropdowns */
@@ -33,6 +36,12 @@
     width: 100%; }
   .job-apply-wrapper .container {
     width: 50%; }
+  .job-apply-wrapper .btn-bite {
+    background: #E74C3C;
+    color: #fff; }
+  .job-apply-wrapper .btn-bite:hover {
+    background: #EE2922;
+    color: #fff; }
   .job-apply-wrapper .brand {
     padding: 10px;
     border-bottom: 1px solid #e5e5e5;
@@ -76,9 +85,6 @@
       overflow-x: hidden; } }
   .job-apply-wrapper .social-login {
     margin: 10px auto; }
-  .job-apply-wrapper .progress-step {
-    border: 1px solid red;
-    overflow: hidden; }
   .job-apply-wrapper .progress-step ul {
     position: relative; }
   .job-apply-wrapper .progress-step li {
@@ -86,7 +92,8 @@
     display: inline-block;
     float: left;
     width: 25%;
-    border: 1px solid navy; }
+    xborder: 1px solid navy;
+    position: relative; }
   .job-apply-wrapper .progress-step li a {
     width: 40px;
     height: 40px;
@@ -105,12 +112,19 @@
     content: '';
     display: inline-block;
     height: 3px;
-    width: 25%;
+    width: 100%;
     background: green;
-    transform: translateX(-50%);
-    z-index: -5; }
+    xtransform: translateX(-50%);
+    z-index: -5;
+    background: #ccc; }
+  .job-apply-wrapper .progress-step li a.active,
   .job-apply-wrapper .progress-step li:first-child:after {
-    background: red; }
+    background: #E74C3C;
+    color: #fff; }
+  .job-apply-wrapper .progress-step li a.active {
+    xborder: 2px solid #fff; }
+  .job-apply-wrapper .progress-step li:last-child:after {
+    background: none; }
   .job-apply-wrapper .form-content {
     border: 1px solid #e5e5e5;
     margin: 10px auto;

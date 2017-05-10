@@ -1,6 +1,14 @@
 /* import dependencies */
 @import 'components/_social-buttons';
 
+$brand-primary-color: #EE2922;
+$brand-sec-color: #E74C3C;
+$white: #fff;
+
+.main-bg-color {
+	background: $brand-sec-color !important;
+}
+
 .job-apply-wrapper {
 	box-sizing: border-box;
 	
@@ -15,6 +23,16 @@
 
 	.container {
 		width: 50%;
+	}
+
+	.btn-bite {
+		background: $brand-sec-color;
+		color: $white;
+	}
+	
+	.btn-bite:hover {
+		background: $brand-primary-color;
+		color: $white;
 	}
 
 	.brand {
@@ -86,8 +104,6 @@
 
 	/* Progress bar */
 	.progress-step {
-		border: 1px solid red;
-		overflow: hidden;
 		
 	}
 
@@ -100,7 +116,8 @@
 			display: inline-block;
 			float: left;
 			width: 25%;
-			border: 1px solid navy;
+			xborder: 1px solid navy;
+			position: relative;
 	}
 
 	.progress-step li a {
@@ -124,18 +141,27 @@
 		content: '';
 		display: inline-block;
 		height: 3px;
-		width: 25%;
+		width: 100%;
 		background: green;
-		transform: translateX(-50%);
+		xtransform: translateX(-50%);
 		z-index: -5;
+		background: #ccc;
 
 	}
 
+    .progress-step li a.active,
 	.progress-step li:first-child:after { 
-		background: red;
+		background: $brand-sec-color;
+		color: #fff;
 	}
 
+	.progress-step li a.active {
+		xborder: 2px solid #fff;	
+	}
 
+	.progress-step li:last-child:after { 
+		background: none;
+	}
 
 	/* Form content */
 	.form-content {
