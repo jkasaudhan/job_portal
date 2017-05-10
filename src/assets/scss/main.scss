@@ -26,12 +26,12 @@ $white: #fff;
 	}
 
 	.btn-bite {
-		background: $brand-sec-color;
+		background: $brand-sec-color !important;
 		color: $white;
 	}
 	
 	.btn-bite:hover {
-		background: $brand-primary-color;
+		background: #d83d2f !important;
 		color: $white;
 	}
 
@@ -149,11 +149,13 @@ $white: #fff;
 
 	}
 
-    .progress-step li a.active,
-	.progress-step li:first-child:after { 
+    .progress-step li.active:after,
+    .progress-step li a.active { 
 		background: $brand-sec-color;
 		color: #fff;
 	}
+
+	
 
 	.progress-step li a.active {
 		xborder: 2px solid #fff;	
@@ -177,6 +179,10 @@ $white: #fff;
 		.ft-item {
 			margin: 0 5px;
 		}
+	}
+
+	.top-gap {
+		margin-top: 10px !important;	
 	}
 
 	/* Controls for responsive layout */

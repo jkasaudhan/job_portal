@@ -37,10 +37,10 @@
   .job-apply-wrapper .container {
     width: 50%; }
   .job-apply-wrapper .btn-bite {
-    background: #E74C3C;
+    background: #E74C3C !important;
     color: #fff; }
   .job-apply-wrapper .btn-bite:hover {
-    background: #EE2922;
+    background: #d83d2f !important;
     color: #fff; }
   .job-apply-wrapper .brand {
     padding: 10px;
@@ -117,8 +117,8 @@
     xtransform: translateX(-50%);
     z-index: -5;
     background: #ccc; }
-  .job-apply-wrapper .progress-step li a.active,
-  .job-apply-wrapper .progress-step li:first-child:after {
+  .job-apply-wrapper .progress-step li.active:after,
+  .job-apply-wrapper .progress-step li a.active {
     background: #E74C3C;
     color: #fff; }
   .job-apply-wrapper .progress-step li a.active {
@@ -135,6 +135,8 @@
     padding-top: 30px; }
     .job-apply-wrapper .form-content .form-footer .ft-item {
       margin: 0 5px; }
+  .job-apply-wrapper .top-gap {
+    margin-top: 10px !important; }
   @media only screen and (max-width: 767px) {
     .job-apply-wrapper .container {
       width: 100%; } }
