@@ -9,7 +9,7 @@ import { JobApplyModule } from './job-apply/job-apply.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
