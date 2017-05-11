@@ -57,17 +57,24 @@ export class JobApplyService {
 		  		{
 		  			"identifier": "step1",
 		  			"label": "General Information",
-		  			"components": viewElements
+		  			"component_groups": [{ 
+		  									"group_lable": "About Me",
+		  									"components": viewElements
+		  								 },
+		  								 { 
+		  									"group_lable": "Further Information",
+		  									"components": viewElements
+		  								  }]
 		  		},
 		  		{
 		  			"identifier": "step2",
 		  			"label": "General Information",
-		  			"components": viewElements
+		  			"components": [viewElements, viewElements]
 		  		},
 		  		{
 		  			"identifier": "step3",
 		  			"label": "General Information",
-		  			"components": viewElements
+		  			"components": [viewElements, viewElements]
 		  		}];
 
 

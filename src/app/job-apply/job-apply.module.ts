@@ -10,6 +10,7 @@ import { TextBoxComponent } from './components/textbox.component';
   ],
   declarations: [JobApplyComponent, TextBoxComponent],
   providers: [JobApplyService],
+  entryComponents: [ TextBoxComponent ],
   exports: [JobApplyComponent]
 })
 export class JobApplyModule { }

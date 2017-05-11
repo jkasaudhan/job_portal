@@ -8,11 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 
 export class TextBoxComponent {
-	label: String = "Full Namee";
 
 	@Input()
-	tlabel: String;
-
-	placeholder: String = " Your Name";
+	label: String = "";
+	placeholder: String = "";
+	value: String = "";
+	
 	constructor() {}
 }
