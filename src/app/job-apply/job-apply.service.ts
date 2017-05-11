@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 export class JobApplyService {
 
   constructor() {
-  	console.log("calling service");
   }
 
   getJSONTemplate() {
@@ -53,28 +52,41 @@ export class JobApplyService {
 
 					  	}];
 
-  	let steps = [
-		  		{
+  	let steps = [{
 		  			"identifier": "step1",
 		  			"label": "General Information",
 		  			"component_groups": [{ 
-		  									"group_lable": "About Me",
+		  									"group_label": "About Me",
 		  									"components": viewElements
 		  								 },
 		  								 { 
-		  									"group_lable": "Further Information",
+		  									"group_label": "Further Information",
 		  									"components": viewElements
 		  								  }]
 		  		},
 		  		{
 		  			"identifier": "step2",
 		  			"label": "General Information",
-		  			"components": [viewElements, viewElements]
+		  			"component_groups": [{ 
+		  									"group_label": "Professional Training",
+		  									"components": viewElements
+		  								 },
+		  								 { 
+		  									"group_label": "Professional Education",
+		  									"components": viewElements
+		  								  }]
 		  		},
 		  		{
 		  			"identifier": "step3",
 		  			"label": "General Information",
-		  			"components": [viewElements, viewElements]
+		  			"component_groups": [{ 
+		  									"group_label": "Dummy Stuff",
+		  									"components": viewElements
+		  								 },
+		  								 { 
+		  									"group_label": "Further Information",
+		  									"components": viewElements
+		  								  }]
 		  		}];
 
 

@@ -1,5 +1,11 @@
 
 <div class="form-group">
 <label for="{{label}}"> {{label}} </label>
-        <input required type="text" name="{{label}}" value={{value}} class="form-control " placeholder="{{placeholder}}"/> 
+        <input required 
+               type="text"
+               name="{{label}}"
+               value={{value}} 
+               class="form-control"
+               placeholder="{{placeholder}}"
+               (keydown)="onChange($event)"/> 
 </div>

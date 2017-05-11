@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
 	selector: 'textbox',
@@ -13,6 +13,13 @@ export class TextBoxComponent {
 	label: String = "";
 	placeholder: String = "";
 	value: String = "";
-	
+
+	@Output()
+	change: EventEmitter<any> = new EventEmitter<any>();
+
 	constructor() {}
+
+	onChange(e) {
+		this.change.emit(e);
+	}
 }
