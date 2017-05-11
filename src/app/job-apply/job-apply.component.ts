@@ -9,13 +9,16 @@ import { TextBoxComponent } from './components/textbox.component';
 })
 
 export class JobApplyComponent implements OnInit {
-  fname: String = "Your name pls";
   jsonTemplate: any;
   fromGroup1Heading: String = "";
   fromGroup2Heading: String = "";
+  totalSteps: Array<String> = ['step1', 'step2', 'step3']; 
 
   @ViewChild('formGroup1', {read: ViewContainerRef}) formGroup1: ViewContainerRef;
   @ViewChild('formGroup2', {read: ViewContainerRef}) formGroup2: ViewContainerRef;
+  @ViewChild('step1') step1Container;
+  @ViewChild('step2') step2Container;
+  @ViewChild('step3') step3Container;
 
   constructor(
   	          private jobService: JobApplyService,
@@ -28,7 +31,7 @@ export class JobApplyComponent implements OnInit {
 
   ngOnInit() {
    
-    //create elements for formGroup1 and formGroup2
+    //Create elements for formGroup1 and formGroup2
     let formGroup1Components = this.jsonTemplate.steps[0].component_groups[0].components;
     let formGroup2Components = this.jsonTemplate.steps[0].component_groups[1].components;
     this.fromGroup1Heading = this.jsonTemplate.steps[0].component_groups[0].group_label;
@@ -57,5 +60,23 @@ export class JobApplyComponent implements OnInit {
     formElement.instance.label = label;
     formElement.instance.placeholder = placeholder;
     formElement.instance.value = value;
+  }
+
+  //Save and go to next page
+  goToNextStep(step) {
+    console.log("clicked on: ", step, 'step1 container: ', this.step1Container.nativeElement.classList);
+    if(typeof(step) !== 'undefined' && step !== null && step === 'step1') {
+      this.step1Container.nativeElement.classList.add('is-current');
+      this.step2Container.nativeElement.classList.remove('is-current');
+      this.step3Container.nativeElement.classList.remove('is-current');
+    }else if(typeof(step) !== 'undefined' && step !== null && step === 'step2') {
+      this.step1Container.nativeElement.classList.remove('is-current');
+      this.step2Container.nativeElement.classList.add('is-current');
+      this.step3Container.nativeElement.classList.remove('is-current');
+    }if(typeof(step) !== 'undefined' && step !== null && step === 'step3') {
+      this.step1Container.nativeElement.classList.remove('is-current');
+      this.step2Container.nativeElement.classList.remove('is-current');
+      this.step3Container.nativeElement.classList.add('is-current');
+    }
   }
 }
