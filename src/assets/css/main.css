@@ -130,7 +130,8 @@
     margin: 10px auto;
     display: none; }
     .job-apply-wrapper .form-content.is-current {
-      display: block; }
+      display: block;
+      opacity: 1; }
   .job-apply-wrapper .form-content .form-footer {
     border-top: 1px solid #e5e5e5;
     min-height: 75px;

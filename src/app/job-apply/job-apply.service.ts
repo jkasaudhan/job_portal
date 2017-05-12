@@ -8,7 +8,7 @@ export class JobApplyService {
 
   getJSONTemplate() {
 
-  	let viewElements = [
+  	let viewComponents = [
 					  	{
 					  		"type": "text",
 					  		"value": "",
@@ -57,11 +57,11 @@ export class JobApplyService {
 		  			"label": "General Information",
 		  			"component_groups": [{ 
 		  									"group_label": "About Me",
-		  									"components": viewElements
+		  									"components": viewComponents
 		  								 },
 		  								 { 
 		  									"group_label": "Further Information",
-		  									"components": viewElements
+		  									"components": viewComponents
 		  								  }]
 		  		},
 		  		{
@@ -69,11 +69,11 @@ export class JobApplyService {
 		  			"label": "General Information",
 		  			"component_groups": [{ 
 		  									"group_label": "Professional Training",
-		  									"components": viewElements
+		  									"components": viewComponents
 		  								 },
 		  								 { 
 		  									"group_label": "Professional Education",
-		  									"components": viewElements
+		  									"components": viewComponents
 		  								  }]
 		  		},
 		  		{
@@ -81,11 +81,11 @@ export class JobApplyService {
 		  			"label": "General Information",
 		  			"component_groups": [{ 
 		  									"group_label": "Dummy Stuff",
-		  									"components": viewElements
+		  									"components": viewComponents
 		  								 },
 		  								 { 
 		  									"group_label": "Further Information",
-		  									"components": viewElements
+		  									"components": viewComponents
 		  								  }]
 		  		}];
 

@@ -1,11 +1,18 @@
-import { Component, OnInit, ViewContainerRef, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewChild, ComponentFactoryResolver, trigger, state, animate, style } from '@angular/core';
 import { JobApplyService } from './job-apply.service';
 import { TextBoxComponent } from './components/textbox.component';
+
 
 @Component({
   selector: 'app-job-apply',
   templateUrl: './job-apply.component.html',
-  styleUrls: ['./job-apply.component.css']
+  styleUrls: ['./job-apply.component.css'],
+  animations: [
+  trigger('visibilityChanged', [
+    state('shown' , style({ opacity: 1 })), 
+    state('hidden', style({ opacity: 0 }))
+  ])
+]
 })
 
 export class JobApplyComponent implements OnInit {

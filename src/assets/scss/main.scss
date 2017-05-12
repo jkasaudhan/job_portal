@@ -96,7 +96,6 @@ $white: #fff;
 		}
 	}
 
-
 	/* Social media logins */
 	.social-login {
 		margin: 10px auto;
@@ -168,9 +167,9 @@ $white: #fff;
 		border: 1px solid #e5e5e5;	
 		margin: 10px auto;
 		display: none;
-
 		&.is-current {
 			display: block;
+			opacity: 1;
 		}
 	}
 
