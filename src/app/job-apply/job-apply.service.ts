@@ -33,6 +33,14 @@ export class JobApplyService {
 					  		"placeholder": "Last Name"
 
 					  	},
+						  {
+					  		"type": "text",
+					  		"value": "",
+					  		"validators": ["required"],
+					  		"label": "Your Address",
+					  		"placeholder": "Address please"
+
+					  	},
 					  	{
 					  		"type": "select",
 					  		"default_text": "Please Select",

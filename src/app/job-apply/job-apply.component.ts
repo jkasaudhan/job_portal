@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewContainerRef, ViewChild, ComponentFactoryResolver, trigger, state, animate, style } from '@angular/core';
 import { JobApplyService } from './job-apply.service';
 import { TextBoxComponent } from './components/textbox.component';
+import { SingleSelectComponent } from './components/single-select.component';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class JobApplyComponent implements OnInit {
   fromGroup1Heading: String = "";
   fromGroup2Heading: String = "";
   totalSteps: Array<String> = ['step1', 'step2', 'step3']; 
+  languageOptions: any[];
 
   @ViewChild('formGroup1', {read: ViewContainerRef}) formGroup1: ViewContainerRef;
   @ViewChild('formGroup2', {read: ViewContainerRef}) formGroup2: ViewContainerRef;
@@ -34,10 +36,15 @@ export class JobApplyComponent implements OnInit {
 
   	console.log("JSON template: ",jobService.getJSONTemplate());
   	this.jsonTemplate = jobService.getJSONTemplate();
+
   }
 
   ngOnInit() {
-   
+    this.languageOptions = [{"value": "en", "label": "English"},
+                            {"value": "de", "label": "Deutsch"},
+                            {"value": "np", "label": "Nepali"},
+                            {"value": "sp", "label": "Spanish"}
+                          ]
     //Create elements for formGroup1 and formGroup2
     let formGroup1Components = this.jsonTemplate.steps[0].component_groups[0].components;
     let formGroup2Components = this.jsonTemplate.steps[0].component_groups[1].components;
@@ -48,15 +55,18 @@ export class JobApplyComponent implements OnInit {
         let component = formGroup1Components[item];
       if(component.type === 'text') {
         this.createTextBoxComponent(this.formGroup1,component.label, component.placeholder, component.value);
+      }else if(component.type === 'select') {
+        this.createSingleSlelectComponent(this.formGroup1, component);
       }
-      
     }
 
     for(let item = 0; item < formGroup2Components.length; item++) {
       let component = formGroup2Components[item];
        if(component.type === 'text') {
         this.createTextBoxComponent(this.formGroup2, component.label, component.placeholder, component.value);
-       }
+       }else if(component.type === 'select') {
+        this.createSingleSlelectComponent(this.formGroup2, component);
+      }
     }
   }
 
@@ -67,6 +77,15 @@ export class JobApplyComponent implements OnInit {
     formElement.instance.label = label;
     formElement.instance.placeholder = placeholder;
     formElement.instance.value = value;
+  }
+
+  createSingleSlelectComponent(parentContainer, params) {
+    //Use ComponentFactoryResolver to compile html view elements or other components
+    let compFactory = this.cfResolver.resolveComponentFactory(SingleSelectComponent);
+  	let formElement = parentContainer.createComponent(compFactory);
+    formElement.instance.msgLabel = params.label;
+    formElement.instance.defaultText = params.default_text;
+    formElement.instance.options = params.options;
   }
 
   //Save and go to next page
