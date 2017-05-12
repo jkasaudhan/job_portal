@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewContainerRef, ViewChild, ComponentFactoryResolver, trigger, state, animate, style } from '@angular/core';
 import { JobApplyService } from './job-apply.service';
-import { TextBoxComponent } from './components/textbox.component';
-import { SingleSelectComponent } from './components/single-select.component';
-
+import { TextBoxComponent } from './components/textbox/textbox.component';
+import { SingleSelectComponent } from './components/single-select/single-select.component';
+import { FormContainerComponent } from './components/form-container-component/form-container-component';
 
 @Component({
   selector: 'app-job-apply',
@@ -23,8 +23,8 @@ export class JobApplyComponent implements OnInit {
   totalSteps: Array<String> = ['step1', 'step2', 'step3']; 
   languageOptions: any[];
 
-  @ViewChild('formGroup1', {read: ViewContainerRef}) formGroup1: ViewContainerRef;
-  @ViewChild('formGroup2', {read: ViewContainerRef}) formGroup2: ViewContainerRef;
+  @ViewChild('parentContentConainer', {read: ViewContainerRef}) parentContentConainer: ViewContainerRef;
+
   @ViewChild('step1') step1Container;
   @ViewChild('step2') step2Container;
   @ViewChild('step3') step3Container;
@@ -40,53 +40,32 @@ export class JobApplyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.languageOptions = [{"value": "en", "label": "English"},
-                            {"value": "de", "label": "Deutsch"},
-                            {"value": "np", "label": "Nepali"},
-                            {"value": "sp", "label": "Spanish"}
-                          ]
+    //For each step create different form containers with its form elements
+    this.jsonTemplate.steps.forEach(item => {
+      console.log(item);
+      this.createStepWithFormElements(this.parentContentConainer, item);
+    });
     //Create elements for formGroup1 and formGroup2
     let formGroup1Components = this.jsonTemplate.steps[0].component_groups[0].components;
     let formGroup2Components = this.jsonTemplate.steps[0].component_groups[1].components;
     this.fromGroup1Heading = this.jsonTemplate.steps[0].component_groups[0].group_label;
     this.fromGroup2Heading = this.jsonTemplate.steps[0].component_groups[1].group_label;
 
-    for(let item = 0; item < formGroup1Components.length; item++) {
-        let component = formGroup1Components[item];
-      if(component.type === 'text') {
-        this.createTextBoxComponent(this.formGroup1,component.label, component.placeholder, component.value);
-      }else if(component.type === 'select') {
-        this.createSingleSlelectComponent(this.formGroup1, component);
-      }
-    }
-
-    for(let item = 0; item < formGroup2Components.length; item++) {
-      let component = formGroup2Components[item];
-       if(component.type === 'text') {
-        this.createTextBoxComponent(this.formGroup2, component.label, component.placeholder, component.value);
-       }else if(component.type === 'select') {
-        this.createSingleSlelectComponent(this.formGroup2, component);
-      }
-    }
   }
 
-  createTextBoxComponent(parentContainer, label, placeholder, value) {
-    //Use ComponentFactoryResolver to compile html view elements or other components
-    let compFactory = this.cfResolver.resolveComponentFactory(TextBoxComponent);
-  	let formElement = parentContainer.createComponent(compFactory);
-    formElement.instance.label = label;
-    formElement.instance.placeholder = placeholder;
-    formElement.instance.value = value;
-  }
-
-  createSingleSlelectComponent(parentContainer, params) {
-    //Use ComponentFactoryResolver to compile html view elements or other components
-    let compFactory = this.cfResolver.resolveComponentFactory(SingleSelectComponent);
-  	let formElement = parentContainer.createComponent(compFactory);
-    formElement.instance.msgLabel = params.label;
-    formElement.instance.defaultText = params.default_text;
-    formElement.instance.options = params.options;
-  }
+ createStepWithFormElements(parentContainer, params) {
+     //For each step there are different form groups so create forms with its form elements
+     for(let i = 0; i < params.component_groups.length; i++) {
+        //Use ComponentFactoryResolver to compile html view elements or other components
+        let compFactory = this.cfResolver.resolveComponentFactory(FormContainerComponent);
+        let formElement = parentContainer.createComponent(compFactory);
+        formElement.instance.formGroup1Heading = params.component_groups[0].group_label;
+        formElement.instance.formGroup1Components = params.component_groups[0].components;
+        formElement.instance.formGroup2Heading = params.component_groups[1].group_label;
+        formElement.instance.formGroup2Components = params.component_groups[1].components;
+       // formElement.instance.containerID = "step" + i;
+     }
+ }
 
   //Save and go to next page
   goToNextStep(step) {

@@ -1,0 +1,28 @@
+<div class="form-content container">
+    <div class="row">
+        <div class="col-md-6">
+        <form action="" method="post" id="fileForm" role="form">
+                    <h3> {{formGroup1Heading}}
+                    </h3>
+                    <ng-template #formGroup1></ng-template>
+        </form>			
+        </div>
+        <div class="col-md-6">
+        <form action="" method="post" id="fileForm" role="form">
+                    <h3>  {{formGroup2Heading}}
+                    </h3>
+                    <ng-template #formGroup2></ng-template>
+        </form>			
+        </div>
+    </div>
+    <div class="form-footer">
+    <div class="row pull-right">
+        <div class="col-md-12">
+                <a href="" class="ft-item">Back</a>
+                <button type="button" class="btn btn-default ft-item">Preview</button>   
+                <button type="button" class="btn btn-default ft-item">Save as draft</button>    
+                <a type="button" class="btn btn-bite ft-item " (click)="goToNextStep('step2')">Next</a>
+        </div>
+    </div>
+    </div> 
+</div>

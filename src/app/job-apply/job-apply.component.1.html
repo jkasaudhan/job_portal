@@ -78,126 +78,126 @@
 		</ul>
 		</div>
 	</div>
-	<div #parentContentConainer>
-		<div #step1  class="form-content container is-current">
-			<div class="row">
-				<div class="col-md-6">
-				<form action="" method="post" id="fileForm" role="form">
-							<h3> {{fromGroup1Heading}}
-							</h3>
-							<ng-template #formGroup1></ng-template>
-				</form>			
-				</div>
-				<div class="col-md-6">
-				<form action="" method="post" id="fileForm" role="form">
-							<h3>  {{fromGroup2Heading}}
-							</h3>
-							<ng-template #formGroup2></ng-template>
-				</form>			
-				</div>
-			</div>
-			<div class="form-footer">
-			<div class="row pull-right">
-				<div class="col-md-12">
-					
-						<a href="" class="ft-item">Back</a>
-						<button type="button" class="btn btn-default ft-item">Preview</button>   
-						<button type="button" class="btn btn-default ft-item">Save as draft</button>    
-						<a type="button" class="btn btn-bite ft-item " (click)="goToNextStep('step2')">Next</a>
-				</div>
-			</div>
-			</div> 
-		</div>
-
-		<div #step2 class="form-content container ">
-			<div class="row">
+	
+	<div #step1  class="form-content container is-current">
+		<div class="row">
 			<div class="col-md-6">
 			<form action="" method="post" id="fileForm" role="form">
-					
-						<h3> Second Form
+						<h3> {{fromGroup1Heading}}
 						</h3>
-
-						<div class="form-group">
-						<label for="phonenumber"> Professional Development <span class="req"> *</span> </label>
-								<a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
-						</div>
-
-						<div class="form-group">
-						<label for="phonenumber"> Professional Education<span class="req"> *</span> </label>
-							<a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
-						</div>
-
-						<div class="form-group">
-						<label for="phonenumber"> Training<span class="req"> *</span> </label>
-								<a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
-						</div>
-
-						
+						<ng-template #formGroup1></ng-template>
 			</form>			
 			</div>
 			<div class="col-md-6">
 			<form action="" method="post" id="fileForm" role="form">
-						
-						<h3> Second Form
+						<h3>  {{fromGroup2Heading}}
 						</h3>
-						<div class="form-group">
-						<label for="phonenumber"> School Career <span class="req"> *</span> </label>
-								<a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
-						</div>
-
-						<div class="form-group">
-						<label for="phonenumber"> Languages<span class="req"> *</span> </label>
-								<a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
-						</div>
-						
+						<ng-template #formGroup2></ng-template>
 			</form>			
 			</div>
-			</div>
-			<div class="form-footer">
-			<div class="row pull-right">
-				<div class="col-md-12">
-					
-						<a href="" class="ft-item">Back</a>
-						<button type="button" class="btn btn-default ft-item">Preview</button>   
-						<button type="button" class="btn btn-default ft-item">Save as draft</button>    
-						<button type="button" class="btn btn-bite ft-item " (click)="goToNextStep('step3')">Next</button>
-				</div>
-			</div>
-			</div> 
 		</div>
-
-		<div #step3 class="form-content container ">
-			<div class="row">
-				<div class="col-md-12 top-gap">
-				<div class = "well">
-				<h3>Submit form</h3>
-				<p>The form has been completely and correctly filled if all the steps have a green checkmark. A red mark indicates that either a required field isn't filled in or invalid data has been entered. The application will only be accepted by the system when all required fields contain valid data. </p>
-				<p>
-					
-					Please attach your application, a passport photograph (in formats jpg , tif , png or bmp ). Regardless of the file type the passport photograph file has to be named "passbild" and has to be uploaded as a separate file.
-				</p>
-				<p>
-					<a class = "btn btn-bite" >Add a application photo</a>
-					<a class = "btn btn-bite" >Add attachments</a>
-				</p>
+		<div class="form-footer">
+		<div class="row pull-right">
+			<div class="col-md-12">
 				
-				</div>
-				</div>
-
+					<a href="" class="ft-item">Back</a>
+					<button type="button" class="btn btn-default ft-item">Preview</button>   
+					<button type="button" class="btn btn-default ft-item">Save as draft</button>    
+					<a type="button" class="btn btn-bite ft-item " (click)="goToNextStep('step2')">Next</a>
 			</div>
-			<div class="form-footer">
-			<div class="row pull-right">
-				<div class="col-md-12">
-					
-						<a href="" class="ft-item">Back</a>
-						<button type="button" class="btn btn-default ft-item">Preview</button>   
-					
-						<button type="button" class="btn btn-bite ft-item " (click)="goToNextStep('step1')">Submit application</button>
-				</div>
-			</div>
-			</div> 
 		</div>
+		</div> 
 	</div>
+	
+	<div #step2 class="form-content container ">
+		<div class="row">
+		<div class="col-md-6">
+		<form action="" method="post" id="fileForm" role="form">
+		           
+		            <h3> Second Form
+		            </h3>
+
+		            <div class="form-group">
+		            <label for="phonenumber"> Professional Development <span class="req"> *</span> </label>
+		                    <a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
+		            </div>
+
+		            <div class="form-group">
+		            <label for="phonenumber"> Professional Education<span class="req"> *</span> </label>
+		                  <a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
+		            </div>
+
+		            <div class="form-group">
+		            <label for="phonenumber"> Training<span class="req"> *</span> </label>
+		                    <a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
+		            </div>
+
+		            
+		</form>			
+		</div>
+		<div class="col-md-6">
+		<form action="" method="post" id="fileForm" role="form">
+		            
+		            <h3> Second Form
+		            </h3>
+		            <div class="form-group">
+		            <label for="phonenumber"> School Career <span class="req"> *</span> </label>
+		                    <a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
+		            </div>
+
+		            <div class="form-group">
+		            <label for="phonenumber"> Languages<span class="req"> *</span> </label>
+		                    <a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></a>
+		            </div>
+		            
+		</form>			
+		</div>
+		</div>
+		<div class="form-footer">
+		<div class="row pull-right">
+			<div class="col-md-12">
+				
+					<a href="" class="ft-item">Back</a>
+					<button type="button" class="btn btn-default ft-item">Preview</button>   
+					<button type="button" class="btn btn-default ft-item">Save as draft</button>    
+					<button type="button" class="btn btn-bite ft-item " (click)="goToNextStep('step3')">Next</button>
+			</div>
+		</div>
+		</div> 
+	</div>
+
+	<div #step3 class="form-content container ">
+		<div class="row">
+			<div class="col-md-12 top-gap">
+			<div class = "well">
+			<h3>Submit form</h3>
+			<p>The form has been completely and correctly filled if all the steps have a green checkmark. A red mark indicates that either a required field isn't filled in or invalid data has been entered. The application will only be accepted by the system when all required fields contain valid data. </p>
+			<p>
+				
+				Please attach your application, a passport photograph (in formats jpg , tif , png or bmp ). Regardless of the file type the passport photograph file has to be named "passbild" and has to be uploaded as a separate file.
+			</p>
+			<p>
+				<a class = "btn btn-bite" >Add a application photo</a>
+				<a class = "btn btn-bite" >Add attachments</a>
+			</p>
+			
+			</div>
+			</div>
+
+		</div>
+		<div class="form-footer">
+		<div class="row pull-right">
+			<div class="col-md-12">
+				
+					<a href="" class="ft-item">Back</a>
+					<button type="button" class="btn btn-default ft-item">Preview</button>   
+				   
+					<button type="button" class="btn btn-bite ft-item " (click)="goToNextStep('step1')">Submit application</button>
+			</div>
+		</div>
+		</div> 
+	</div>
+
 </div>
 
 <!-- Modal -->
